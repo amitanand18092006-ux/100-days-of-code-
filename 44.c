@@ -1,0 +1,46 @@
+/*
+Count spaces, digits, and special characters in a string.
+*/
+
+#include <stdio.h>
+
+int main() {
+    char str[1000];
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    
+    int spaces = 0, digits = 0, special = 0;
+    for(int i = 0; str[i] != '\0' && str[i] != '\n'; i++) {
+        if(str[i] == ' ') {
+            spaces++;
+        } else if(str[i] >= '0' && str[i] <= '9') {
+            digits++;
+        } else if(!((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))) {
+            special++;
+        }
+    }
+    
+    printf("Spaces: %d\n", spaces);
+    printf("Digits: %d\n", digits);
+    printf("Special characters: %d\n", special);
+    return 0;
+}/*
+Replace spaces with hyphens in a string.
+*/
+
+#include <stdio.h>
+
+int main() {
+    char str[1000];
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    
+    for(int i = 0; str[i] != '\0'; i++) {
+        if(str[i] == ' ') {
+            str[i] = '-';
+        }
+    }
+    
+    printf("Modified string: %s", str);
+    return 0;
+}
